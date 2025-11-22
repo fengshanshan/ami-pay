@@ -2,7 +2,7 @@
 
 **Let your amigos help you pay.**
 
-A decentralized payment solution built during ETHGlobal Argentina 2024, inspired by the local payment app "Peanut" and designed to solve KYC barriers for international travelers.
+A decentralized payment solution built during ETHGlobal Argentina 2025, inspired by the local payment app "Peanut" and designed to solve KYC barriers for international travelers.
 
 ## 🌎 Our Story
 
@@ -97,7 +97,7 @@ This project is built for ETHGlobal Argentina 2025 hackathon.
 ## 🙏 Acknowledgments
 
 - Inspired by **Peanut** - the amazing local payment app in Argentina
-- Built with ❤️ during **ETHGlobal Argentina 2024**
+- Built with ❤️ during **ETHGlobal Argentina 2025**
 - Special thanks to the DevConnect and ETHGlobal communities
 
 ---
