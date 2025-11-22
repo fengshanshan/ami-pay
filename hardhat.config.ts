@@ -1,6 +1,5 @@
 import hardhatToolboxViemPlugin from "@nomicfoundation/hardhat-toolbox-viem";
 import { configVariable, defineConfig } from "hardhat/config";
-import "./tasks";
 
 export default defineConfig({
   plugins: [hardhatToolboxViemPlugin],
@@ -46,11 +45,5 @@ export default defineConfig({
     etherscan: {
       apiKey: configVariable("ETHERSCAN_API_KEY"),
     },
-  },
-  gasReporter: {
-    enabled: process.env.REPORT_GAS !== undefined,
-    currency: "USD",
-    outputFile: "gas-report.txt",
-    noColors: true,
-  },
+  }
 });
