@@ -1,5 +1,6 @@
 import hardhatToolboxViemPlugin from "@nomicfoundation/hardhat-toolbox-viem";
 import { configVariable, defineConfig } from "hardhat/config";
+import "./tasks";
 
 export default defineConfig({
   plugins: [hardhatToolboxViemPlugin],
@@ -32,7 +33,24 @@ export default defineConfig({
       type: "http",
       chainType: "l1",
       url: configVariable("SEPOLIA_RPC_URL"),
-      accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
+      accounts: [configVariable("PRIVATE_KEY")],
     },
+    hoodi: {
+      type: "http",
+      chainType: "l1",
+      url: configVariable("HOODI_RPC_URL"),
+      accounts: [configVariable("PRIVATE_KEY")],
+    },
+  },
+  verify: {
+    etherscan: {
+      apiKey: configVariable("ETHERSCAN_API_KEY"),
+    },
+  },
+  gasReporter: {
+    enabled: process.env.REPORT_GAS !== undefined,
+    currency: "USD",
+    outputFile: "gas-report.txt",
+    noColors: true,
   },
 });

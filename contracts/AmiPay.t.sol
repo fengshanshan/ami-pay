@@ -54,6 +54,11 @@ contract AmiPayTest is Test {
         assertEq(ap.allowances(beneficiary, sponsor), DEPOSIT_AMOUNT);
         assertEq(tt.balanceOf(address(ap)), DEPOSIT_AMOUNT);
         assertEq(tt.balanceOf(sponsor), INITIAL_BALANCE - DEPOSIT_AMOUNT);
+
+        // Hardhat console logging example
+        console.log("Deposit successful:");
+        console.log("  Allowance:", ap.allowances(beneficiary, sponsor));
+        console.log("  Contract balance:", tt.balanceOf(address(ap)));
     }
 
     function test_DepositAllowance_InvalidBeneficiary() public {
@@ -101,7 +106,7 @@ contract AmiPayTest is Test {
         vm.prank(sponsor);
         tt.approve(address(ap), DEPOSIT_AMOUNT);
 
-        vm.expectEmit(true, true, false, false);
+        vm.expectEmit(true, true, false, true);
         emit AmiPay.AllowanceDeposited(sponsor, beneficiary, DEPOSIT_AMOUNT);
 
         vm.prank(sponsor);
@@ -236,7 +241,7 @@ contract AmiPayTest is Test {
         vm.prank(sponsor);
         ap.depositAllowance(beneficiary, DEPOSIT_AMOUNT);
 
-        vm.expectEmit(true, true, true, false);
+        vm.expectEmit(true, true, true, true);
         emit AmiPay.AllowanceSpent(
             sponsor,
             beneficiary,

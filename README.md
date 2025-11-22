@@ -16,9 +16,11 @@ For many international travelers, especially those from certain regions, KYC ver
 
 ## 💡 Our Solution
 
-**AmiPay** enables amigos (your friends) who can pass KYC to deposit an allowance for you. When you need to pay, you can use this pre-funded allowance.
+**AmiPay** enables amigos (your friends) who can pass KYC and have the money to deposit an allowance for you. When you need to pay, you can use this pre-funded allowance.
 
 ### How It Works
+
+The core features are following:
 
 1. **Sponsor Deposits**: A friend (sponsor) who has passed KYC deposits tokens into the AmiPay smart contract, specifying you as the beneficiary
 2. **You Spend**: When you need to pay, you can spend from the allowance your friend deposited
@@ -27,41 +29,6 @@ For many international travelers, especially those from certain regions, KYC ver
 All of this is managed transparently on-chain through our smart contract, ensuring trust and security.
 
 ## 🏗️ Architecture
-
-### Smart Contract (`AmiPay.sol`)
-
-The core smart contract manages allowances between sponsors and beneficiaries:
-
-- **`depositAllowance(beneficiary, amount)`**: Allows a sponsor to deposit tokens for a beneficiary
-- **`spendFrom(sponsor, recipient, amount)`**: Allows a beneficiary to spend from a sponsor's deposited allowance
-- **`allowances[beneficiary][sponsor]`**: Public mapping to query available allowances
-
-### Frontend
-
-A React-based mobile-friendly web application featuring:
-
-- Wallet connection via RainbowKit
-- QR code scanning for payments
-- Real-time balance display
-- Sponsor management interface
-- Transaction history
-
-## 🛠️ Tech Stack
-
-### Smart Contracts
-
-- **Solidity** ^0.8.28
-- **Hardhat3** for development and testing
-- **OpenZeppelin** contracts for security
-- **Hardhat Ignition** for deployment
-
-### Frontend
-
-- **React** 19 with **TypeScript**
-- **Vite** for build tooling
-- **Wagmi** & **Viem** for Ethereum interactions
-- **RainbowKit** for wallet connection
-- **React QR Scanner** for payment scanning
 
 ## 📁 Project Structure
 
@@ -80,15 +47,67 @@ ami-pay/
 └── hardhat.config.ts  # Hardhat configuration
 ```
 
+## 🛠️ Tech Stack
 
-## 🧪 Testing
+### Smart Contracts
+
+- **Solidity** ^0.8.28
+- **Hardhat3** for development and testing
+- **OpenZeppelin** contracts for security
+- **Hardhat Ignition** for deployment
+
+### Frontend
+
+- **React** 19 with **TypeScript**
+- **Vite** for build tooling
+- **Wagmi** & **Viem** for Ethereum interactions
+- **RainbowKit** for wallet connection
+- **React QR Scanner** for payment scanning
+
+### Smart Contract Features (`AmiPay.sol`)
+
+The core smart contract manages allowances between sponsors and beneficiaries:
+
+- **`depositAllowance(beneficiary, amount)`**: Allows a sponsor to deposit tokens for a beneficiary
+- **`spendFrom(sponsor, recipient, amount)`**: Allows a beneficiary to spend from a sponsor's deposited allowance
+- **`allowances[beneficiary][sponsor]`**: Public mapping to query available allowances
+
+#### 🧪 Testing Coverage
 
 Run the test suite:
 
 ```bash
-npx hardhat test
+npx hardhat test solidity
 ```
 
+Result:
+
+```bash
+npx hardhat test solidity --coverage
+```
+
+![Test Coverage Results](./docs/test_coverage.png)
+
+### Frontend Features
+
+A React-based mobile-friendly web application featuring:
+
+- Wallet connection via RainbowKit
+- QR code scanning for payments
+- Real-time balance display
+- Sponsor management interface
+- Transaction history
+
+## 📝 Deployed Address
+
+We use the hoodi testnet to test the contract
+
+Deployed Addresses:
+
+AmiPayModule#TestToken - 0x5FbDB2315678afecb367f032d93F642f64180aa3
+AmiPayModule#AmiPay - 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+
+## 🚀 Future Plans
 
 ## 📄 License
 
