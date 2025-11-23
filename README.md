@@ -104,8 +104,9 @@ We use the hoodi testnet to test the contract
 
 Deployed Addresses:
 
-AmiPayModule#TestToken - 0x5FbDB2315678afecb367f032d93F642f64180aa3
-AmiPayModule#AmiPay - 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+AmiPayModule#TestToken - 0xCad6980d7c09EEcd20D4c12110C8b89755D9A227
+
+AmiPayModule#AmiPay - 0x7b07761ae6D912B33Af13dFc962162ff8F611EaC
 
 ## 🚀 Future Plans
 
